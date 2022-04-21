@@ -1,18 +1,23 @@
 class MyHashSet {
 public:
-  vector<int>ans;
+  vector<int>ans[123];
+  int size = 123;
   //       int ind;
   
     MyHashSet() {
       
-      ans.resize(1e6+1,false);
+      
+//       ans.resize(1e6+1,false);
     
-
-        
     }
     
     void add(int key) {
       
+      int index = key % size;
+      if(!contains(key))
+      {
+        ans[index].push_back(key);
+      }
       
 //       if(search(key)!=true)
         
@@ -20,9 +25,10 @@ public:
 //         ans.push_back(key);
         
 //       }
-     
-      ans[key] = true;
-        
+ 
+    
+      // ans[key] = true;        
+      
     }
   
 //   bool search(int key)
@@ -42,16 +48,38 @@ public:
 //   }
     
     void remove(int key) {
+      int index = key%size;
       
+      for(int i=0;i<ans[index].size();i++)
+      {
+        if(ans[index][i]==key)
+        {
+          ans[index].erase(ans[index].begin() + i );
+          break;
+        }
+      }
       // search(key);
       // ans.erase(ans.begin() + ind);
-      ans[key]=false;
+      // ans[key]=false;
         
     }
     
     bool contains(int key) {
     
-      return ans[key];
+      // return ans[key];
+      
+      int index = key%size;
+      
+      for(int i=0;i<ans[index].size();i++)
+      {
+        if(ans[index][i]==key)
+        {
+          return true;
+          break;
+        }
+      }
+      
+      return false;
         
     }
 };
