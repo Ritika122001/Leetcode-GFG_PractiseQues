@@ -1,13 +1,14 @@
 class MyHashSet {
 public:
-  vector<int>ans[123];
+  // vector<int>ans[123]; //2d array  vector<vector<int>>ans;
+  vector<vector<int>>ans;
   int size = 123;
   //       int ind;
   
     MyHashSet() {
       
       
-//       ans.resize(1e6+1,false);
+      ans.resize(size);
     
     }
     
