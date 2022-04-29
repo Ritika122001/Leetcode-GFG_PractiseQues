@@ -80,7 +80,7 @@ int countNodesinLoop(struct Node *head)
     
     Node* p = head;
     Node* q = head;
-      while(p and p->next)
+      while(p and q and p->next)
     {
         p=p->next->next;
         q=q->next;
