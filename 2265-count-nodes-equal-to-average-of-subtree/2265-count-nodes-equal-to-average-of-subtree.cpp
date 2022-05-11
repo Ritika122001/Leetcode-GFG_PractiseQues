@@ -47,10 +47,11 @@ public:
         cnt=0;
         solve(root->left);
         solve(root->right);
-        
-        
-     
-        
+         int a=findsum(root);
+        if(cnt>0 and a/cnt==root->val)
+            res++;
+        cnt=0,sum=0;
+       
     }
     
     
@@ -61,10 +62,7 @@ public:
       
       solve(root);
         
-        return res;
-        
-        
-          
-        
+        return res/2;
+    
     }
 };
