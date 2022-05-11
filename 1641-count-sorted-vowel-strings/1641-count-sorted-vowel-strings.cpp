@@ -1,7 +1,7 @@
 class Solution {
 public:
   
-   int solve(int i, int n, string &vowel)
+   int solve(int i, int n, string &vowel, vector<vector<int>>&memo)
    {
      
      if(n==0)
@@ -16,9 +16,14 @@ public:
        return 0;
      }
      
-     int pick = solve(i,n-1,vowel);
-     int nopick = solve(i+1,n,vowel);
-     return pick+nopick;
+     if(memo[i][n]!=-1)
+     {
+       return memo[i][n];
+     }
+     
+     int pick = solve(i,n-1,vowel,memo);
+     int nopick = solve(i+1,n,vowel,memo);
+     return memo[i][n] = pick+nopick;
      
      
    }
@@ -28,9 +33,8 @@ public:
     int countVowelStrings(int n) {
       
       string vowel = "aeiou";
-      return solve(0,n,vowel);
-      
-      
-        
+       vector<vector<int>>memo(5, vector<int>(n+1, -1));
+      return solve(0,n,vowel,memo);
+     
     }
 };
