@@ -30,16 +30,17 @@ public:
          
         
         per(res,nums,0, nums.size());
-        set<vector<int>>st;
+//         set<vector<int>>st;
         
-        for(auto &c : res)
-        {
-            st.insert(c);
-        }
+//         for(auto &c : res)
+//         {
+//             st.insert(c);
+//         }
         
         
-        vector<vector<int>>v(st.begin(), st.end());
-        return v;
+//         vector<vector<int>>v(st.begin(), st.end());
+//         return v;
         
+        return res;
     }
 };
