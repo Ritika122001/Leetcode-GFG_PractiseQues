@@ -2,12 +2,15 @@ class Solution {
 public:
     
     // bool ans;
-    int  memo[102][102][205];
+    int  memo[102][102][205];//3dp
+    
+    
+    // int memo[100][100][100][100]//4dp
     // bool solve(int open, int close,vector<vector<char>>& grid,int i, int j)
             bool solve(int i, int j,vector<vector<char>>& grid,int bal)
     {
         
-        if(i==grid.size() || j==grid[0].size())
+        if(i>=grid.size() || j>=grid[0].size())
         {
             return false;
         }
@@ -30,7 +33,7 @@ public:
         
         
         
-        if(bal<0)
+        if(bal<0) //using bal variable for optimisation bal ++ if open bal-- if close 
         {
             return false;
         }
