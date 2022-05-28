@@ -2,9 +2,8 @@ class Solution {
 public:
     
     
-    int memo[1005][1005];
     
-    int solve(string &s, string &t, int i , int j )
+    int solve(string &s, string &t, int i , int j , vector<vector<int>>&memo)
     {
         if(j<=0)
         {
@@ -25,12 +24,12 @@ public:
         if( s[i-1] == t[j-1] )
         {
             
-            return memo[i][j] = solve(s,t,i-1,j-1) + solve(s,t,i-1,j);
+            return memo[i][j] = solve(s,t,i-1,j-1,memo) + solve(s,t,i-1,j,memo);
             
         }
         
         else
-            return memo[i][j] =  solve(s,t,i-1,j);
+            return memo[i][j] =  solve(s,t,i-1,j,memo);
         
         
     
@@ -42,9 +41,9 @@ public:
         
         int n = s.length();
         int m = t.length();
-        memset(memo, -1, sizeof(memo));
-        // vector<vector<int>>memo(n+1, vector<int>(m+1,-1));
-        return solve(s,t,s.length(),t.length());
+        
+        vector<vector<int>>memo(n+1, vector<int>(m+1,-1));
+        return solve(s,t,s.length(),t.length(),memo);
         
     }
 };
