@@ -7,7 +7,7 @@ class Solution {
 public:
 
 
-  int dp[1001][1001];
+  int dp[100][100];
     
      int dfs(int i, int j, vector<vector<int>>&grid, int prev)
      {
