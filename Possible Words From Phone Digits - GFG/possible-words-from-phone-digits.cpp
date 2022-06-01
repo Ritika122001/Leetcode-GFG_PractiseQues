@@ -34,7 +34,7 @@ class Solution
                op.push_back(c);
                solve(a,N,ans,i+1,op);
                op.pop_back();
-            // solve(a,N,ans,i+1,op);
+            //   solve(a,N,ans,i+1,op.push_back(c));
                
         }
  
