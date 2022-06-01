@@ -13,18 +13,26 @@ public:
  
   
 
-  void solve(int N ,  int A , int C , int B , vector<pair<int,int>>&ans)
+  void solve(int N , int &n,  int A , int C , int B , vector<int>&ans , int cnt)
   {
       
       if(N==0)
          return;
 
       
-      solve(N-1 , A , B , C , ans);
+      solve(N-1 , n, A , B , C , ans,cnt);
+      n--;
+      if(n==0)
+      {
+                ans.push_back(A);
+                ans.push_back(C);
+                return;
+      }
       
-      ans.push_back({A,C});
       
-      solve(N-1,  B, C, A, ans);
+
+      
+      solve(N-1,  n , B, C, A, ans,cnt);
       
   
   }
@@ -34,17 +42,19 @@ public:
 
     vector<int> shiftPile(int N, int n){
         // code here
-        vector<pair<int,int>>ans;
-        solve(N, 1, 3 , 2 , ans);
+        vector<int>ans;
+        int cnt=0;
+        solve(N, n , 1, 3 , 2 , ans , cnt);
         
         
-    //  /   for(auto c: ans)
+    //   for(auto c: ans)
     //     {
-    //         cout<<c.first<<" "<<c.second<<endl; 
+    //         cout<<c<<endl; 
     //     }
            
      
-        return { ans[n-1].first , ans[n-1].second}; 
+        // return { ans[n-1].first , ans[n-1].second}; 
+        return ans;
     }
 };
 
