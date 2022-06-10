@@ -39,14 +39,15 @@ class Solution{
                 {
                     
                     
-                       mini = min(mini,j-i);
+                mini = min(mini,j-i);
                 if(mp[str[i]]==1)
                 {
-                    cnt--;
+                  cnt--;
+                    //   mp.erase(str[i]);
                     
                 }
                 
-                mp[str[i]]--;
+                mp[str[i]]--; //if freq is greater than 1 
                 i++;
                
                 
