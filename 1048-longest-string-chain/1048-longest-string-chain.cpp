@@ -4,36 +4,24 @@ public:
 bool lis(string &s1, string &s2)
     {
         
+    if( (s2.length()+1)!=s1.length()) return false;
         int i=0;
         int j=0;
-        int differences=0; 
+        // int differences=0; 
         
-        while(i<s1.size() and j<s2.size())
+        while(i<s1.length() and j<s2.length())
         {   
             
             if(s1[i]==s2[j])
             {
-                i++;
                 j++;
             }
-            
-            else{
-                
-                 differences++;
-                if(differences==2){
-                    return false;
-                }
-                
-                else{
-                    
-                    j++;
-                }
-            }
+            i++; 
             
             
         }
         
-        return true;
+      return j==s2.size();
 
     }
     
@@ -64,7 +52,7 @@ bool lis(string &s1, string &s2)
 // }  
     
     
-     static bool cmp(string a,string b){
+     static bool cmp(string &a,string &b){
         return a.size()<b.size();
     }
     
@@ -82,17 +70,10 @@ bool lis(string &s1, string &s2)
             for(int j=0;j<i;j++)
             {
                 string s2 = words[j];
-                   int m=s1.size();
-                int n=s2.size();
-                
-                
-                 if(abs(n-m)>1 || n-m==0){
-                    continue;
-                }
-                 
-                if(lis(s2,s1))
+                  
+                if(lis(s1,s2) and dp[i]<=dp[j]+1)
                 {
-                    dp[i] =  max(dp[i], dp[j] + 1);
+                    dp[i] = dp[j] + 1;
                     
                 }
                 
