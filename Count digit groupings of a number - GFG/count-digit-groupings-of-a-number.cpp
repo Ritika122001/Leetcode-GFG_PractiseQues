@@ -38,7 +38,7 @@ class Solution{
 	
 	int TotalCount(string str){
 	    // Code here
-	    vector<vector<int>>memo(str.length() , vector<int>(1000,-1));
+	    vector<vector<int>>memo(101 , vector<int>(10000,-1));
 	    return solve(str,0,0,memo);
 	    
 	    
