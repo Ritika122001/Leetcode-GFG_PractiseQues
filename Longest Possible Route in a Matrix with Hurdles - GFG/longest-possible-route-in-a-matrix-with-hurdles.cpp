@@ -12,9 +12,9 @@ class Solution {
 public:
 
 
-   int solve(vector<vector<int>>&matrix, int xs, int ys, int xd, int yd , vector<vector<bool>>&vis)
+int solve(vector<vector<int>>&matrix, int xs, int ys, int xd, int yd , vector<vector<bool>>&vis)
 
-{        int x=matrix.size(),y=matrix[0].size();
+{       int x=matrix.size(),y=matrix[0].size();
         if(xs<0 || ys<0 || xs>=x || ys>=y || matrix[xs][ys]==0 || vis[xs][ys]==true)
             return INT_MIN;
 
@@ -26,16 +26,16 @@ public:
     
     vis[xs][ys]=true;
     
-    int r = 1 + solve(matrix,xs,ys+1,xd,yd,vis);
-    int l = 1 + solve(matrix,xs,ys-1,xd,yd,vis);
-    int u = 1 + solve(matrix,xs-1,ys,xd,yd,vis);
-    int d = 1 + solve(matrix,xs+1,ys,xd,yd,vis);
+    int r = solve(matrix,xs,ys+1,xd,yd,vis);
+    int l =  solve(matrix,xs,ys-1,xd,yd,vis);
+    int u = solve(matrix,xs-1,ys,xd,yd,vis);
+    int d = solve(matrix,xs+1,ys,xd,yd,vis);
     
     vis[xs][ys]=false;
     int first = max(r,l) ;
     int second = max(u,d); 
     
-    return max(first,second);
+    return 1 + max(first,second);
    
     
 }
