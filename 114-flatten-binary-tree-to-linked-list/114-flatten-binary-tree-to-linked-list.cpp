@@ -12,23 +12,53 @@
 class Solution {
 public:
     
-    TreeNode* prev=NULL;
+//     TreeNode* prev=NULL;
     
     void flatten(TreeNode* root) {
         
-        //reverse preorder 
+   // 1st Approach : -     //reverse preorder 
         
-        if(root==NULL)
-        {
+//         if(root==NULL)
+//         {
+//             return;
+//         }
+        
+//         flatten(root->right);
+//         flatten(root->left);
+        
+//         root->right = prev;
+//         root->left=NULL;
+//         prev=root;
+        
+        
+        
+//         2nd Approach  : -using Stack
+        
+         if(root== NULL)
             return;
+        
+        stack<TreeNode*>st;
+        st.push(root);
+        
+        while(!st.empty())
+        {
+            
+            
+            TreeNode* node = st.top();
+            st.pop();
+            
+            if(node->right) st.push(node->right);
+            
+            if(node->left) st.push(node->left);
+            
+            if(!st.empty())
+                node->right = st.top();
+            
+            node->left=NULL;
+         
+            
         }
         
-        flatten(root->right);
-        flatten(root->left);
-        
-        root->right = prev;
-        root->left=NULL;
-        prev=root;
         
         
     }
