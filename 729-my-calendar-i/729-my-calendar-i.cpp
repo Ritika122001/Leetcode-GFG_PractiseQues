@@ -1,7 +1,8 @@
 class MyCalendar {
 public:
     
-    vector<vector<int>>vec;
+    // vector<vector<int>>vec;
+    vector<pair<int,int>>vec;
     
     MyCalendar() {
         
@@ -11,24 +12,37 @@ public:
     
     bool book(int start, int end) {
         
+        
+        for(auto c :vec)
+        {
+            if(start>=c.second || end<=c.first)
+            {
+                continue;
+            }
+            else{
+            
+                
+                return false;
+            }
+        }
      
-       for(int i=0;i<vec.size();i++)
-       {
-           if(start>=vec[i][1])
-           {
-               continue;
-           }
+//        for(int i=0;i<vec.size();i++)
+//        {
+//            if(start>=vec[i][1])
+//            {
+//                continue;
+//            }
            
-           else if(end<=vec[i][0])
-           {
-               continue;
+//            else if(end<=vec[i][0])
+//            {
+//                continue;
                
-           }
+//            }
            
-           else{
-               return false;
-           }
-       }
+//            else{
+//                return false;
+//            }
+//        }
         
         vec.push_back({start,end});
         return true;
