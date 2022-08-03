@@ -12,19 +12,15 @@ public:
     }
     
     
-    bool check(int s1 , int s2 , int e1 , int e2)
-    {
-        return max(s1,s2) < min(e1,e2);
-    }
     
     bool book(int start, int end) {
     
-       
+//        1st Approach
         
         for(auto c : doublebooking)
         {
             
-            // if(check(c.first,c.second,start,end))
+            
             if(start<c.second and end>c.first)
                   return false;
 
@@ -34,7 +30,7 @@ public:
         
         for(auto c : booking)
         {
-            // if(check(c.first,c.second,start,end))
+           
             if(start<c.second && end >c.first)
             {
                 doublebooking.push_back( { max(c.first,start) , min(end,c.second)});
@@ -47,6 +43,9 @@ public:
         
     }
         
+    
+    // 2nd Approach--->
+    
       
 //         mp[start]++;
 //         mp[end]--;
