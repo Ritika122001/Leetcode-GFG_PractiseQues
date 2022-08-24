@@ -21,7 +21,8 @@ public:
             
             if(i==s.length() and part==4)
             {
-                ans.push_back(res.substr(0,res.length()-1));
+                res.pop_back();
+                ans.push_back(res);
             }
             
             
