@@ -30,8 +30,12 @@ public:
         }
         
         
+         if(i+1<=s.length() and isvalid(s.substr(i,1)))
+        {
+           solve(s,i+1,part+1,ans,res+s.substr(i,1)+".");
+        }
         
-        solve(s,i+1,part+1,ans,res+s[i]+".");
+        
         if(i+2<=s.length() and isvalid(s.substr(i,2)))
         {
             solve(s,i+2,part+1,ans,res+s.substr(i,2)+".");
