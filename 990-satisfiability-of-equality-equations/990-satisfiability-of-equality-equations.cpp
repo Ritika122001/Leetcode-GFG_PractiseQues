@@ -1,6 +1,10 @@
 class Solution {
 public:
     
+    //path checking 
+    
+//     if not equal aur saath me true yes it is not equal --> false no path 
+    
     bool solve(vector<vector<int>>adj , vector<bool>&vis, int  x1, int x2)
     {
         
@@ -21,7 +25,37 @@ public:
             }
         }
         
-        return false;
+//         return false;
+        
+//          queue<int>q;;
+//            q.push(x1);
+    
+         
+//           while(!q.empty())
+//           {
+//             int node =  q.front();
+//             q.pop();
+            
+//             for(auto it: adj[node])
+//             {
+              
+//               if(it==x2)
+//               {
+//                 return true;
+//               }
+              
+//               if(!vis[it])
+//               {
+//                 q.push(it);
+//                 vis[it]=1;
+                
+//               }
+        
+//             }
+//           }
+          
+      
+      return false;
 
         
     }
