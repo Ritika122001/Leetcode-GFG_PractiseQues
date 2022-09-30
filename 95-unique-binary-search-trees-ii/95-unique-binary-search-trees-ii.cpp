@@ -1,59 +1,46 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
 public:
     
-    vector<TreeNode*> solve(int st , int end , int n)
-        
-{
-    vector<TreeNode*>trees;
-    
-    if(st>end)
+    int solve(int n , vector<int>&dp)
     {
-        trees.push_back(NULL);
-        return trees;
-    }
- 
-    for(int i=st; i<=end;i++)
-    {
-        vector<TreeNode*>l  = solve(st, i-1,n);
         
-       
-        
-        vector<TreeNode*>r = solve(i+1,end,n);
-        
-        
-        for(auto j : l)
+        if(n<=1)
         {
-            for(auto c: r)
-            {
-                TreeNode* node = new TreeNode(i);
-                node->left=j;
-                node->right=c;
-                trees.push_back(node);
-          }
+            return 1;
+       
         }
         
+        if(dp[n]!=-1)
+        {
+            return dp[n];
+        }
+        
+        int ans=0;
+        
+        for(int i=1;i<=n;i++)
+        {
+            ans+=solve(i-1,dp) * solve(n-i,dp);
+        }
+        
+        return dp[n] = ans; 
+        
+    
     }
     
-    return trees;
     
-    
-}
-
-    
-    vector<TreeNode*> generateTrees(int n) {
+    int numTrees(int n) {
         
-        return solve(1,n,n);
+        int ans=0;
         
+         vector<int> dp(n + 1, -1);
+    
+        // for(int i=1;i<=n;i++)
+        // {
+        //     ans+=solve(n);
+        // }
+        
+    return  solve(n,dp);
+        
+    
     }
 };
