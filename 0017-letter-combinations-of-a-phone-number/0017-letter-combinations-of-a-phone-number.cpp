@@ -14,9 +14,10 @@ public:
             return;
         }
         
-        
-        for(auto c : mp[digits[i]-'2'])
+        string str = mp[digits[i]-'2'];
+        for(auto c : str)
         {
+            cout<<"OUTPUT"<< op+c<<endl; 
             solve(digits ,i+1 , op+c);
         }
         
