@@ -1,7 +1,7 @@
 class Solution {
 public:
         
-    void solve(vector<int>& nums, int index,  vector<vector<int>>&res, vector<int>ans, vector<bool>&used)
+void solve(vector<int>& nums, int index,  vector<vector<int>>&res, vector<int>ans, vector<bool>&used)
     {
         
         if(ans.size() == nums.size())
@@ -21,8 +21,6 @@ public:
                 ans.pop_back();
                 used[j] = false;
             }
-            
-            
         
         }
       
