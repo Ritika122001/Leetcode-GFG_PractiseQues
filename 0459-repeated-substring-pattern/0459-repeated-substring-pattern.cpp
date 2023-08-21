@@ -8,11 +8,11 @@ public:
         return false;
     }
     
-    for (int i = 1; i <= n/2; ++i) {
-        if (n % i == 0) {
-            string sub_str = s.substr(0, i);
+    for (int l = 1; l <= n/2; ++l) {
+        if (n % l== 0) {
+            string sub_str = s.substr(0, l);
             string reconstructed_str = "";
-            for (int j = 0; j < n/i; ++j) {
+            for (int j = 0; j < n/l; ++j) {
                 reconstructed_str += sub_str;
             }
             if (reconstructed_str == s) {
