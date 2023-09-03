@@ -1,19 +1,19 @@
 class Solution {
 public:
-  
+    
   int solve(int i,int j,int m,int n, vector<vector<int>>&dp)
   {
-    
-      if(i==m-1 and j==n-1)
+      
+       if(i==m-1 and j==n-1)
        {
          return 1;
          
        }
        
-      if(i>=m or j>=n)
-      {
-        return 0;
-      }
+          if(i>=m or j>=n)
+          {
+            return 0;
+          }
     
     
     if(dp[i][j]!=-1)  //visited
@@ -29,9 +29,6 @@ public:
   
   
     int uniquePaths(int m, int n) {
-      
-      //m rows
-      //n columns
       vector<vector<int>>dp(m,vector<int>(n,-1));
       
     return solve(0,0,m,n,dp);
